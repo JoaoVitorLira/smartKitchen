@@ -1,42 +1,45 @@
+import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Platform, StatusBar, ScrollView } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons'
+import { MaterialIcons } from '@expo/vector-icons';
 
-const alturaStatusBar = StatusBar.currentHeight
+const alturaStatusBar = StatusBar.currentHeight;
 
-export default function App() {
-
+export function saude() {
   return (
-    <View style={ESTILOS.container}>
-      <StatusBar barStyle="dark-content" translucent={true} backgroundColor="#F1F1F1" />
-      <Text style={ESTILOS.header}>Help Health</Text>
-      <View style={ESTILOS.form}>
-        <Text style={ESTILOS.label}>Insira abaixo as especificações</Text>
+    <View style={styles.container}>
+      <StatusBar barStyle="dark-content" translucent={true} backgroundColor="#f1f1f1" />
+      <Text style={styles.header}>Dicas de autocuidado e saúde</Text>
+      <View style={styles.form}>
+        <Text style={styles.label}>Informe sua dúvida:</Text>
         <TextInput
-          placeholder="O que você está sentindo?"
-          style={ESTILOS.input}
+          placeholder="Qual os sintomas?"
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Em que momento os sintomas apareceram: (ex: 3 dias atrás)."
+          style={styles.input}
         />
       </View>
-      <TouchableOpacity style={ESTILOS.button}>
-        <Text style={ESTILOS.buttonText}>Gerar receita</Text>
-        <MaterialIcons name="travel-explore" size={24} color="#FFF" />
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Obter dicas</Text>
+        <MaterialIcons name="search" size={24} color="#FFF" />
       </TouchableOpacity>
-      <ScrollView style={ESTILOS.containerScroll} showsVerticalScrollIndicator={false} 
-      contentContainerStyle={{ paddingBottom: 24, marginTop: 4, }}>
 
-        <View style={ESTILOS.content}>
-          <Text style={ESTILOS.title}>Produzindo receita...</Text>
+      <ScrollView style={styles.containerScroll} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 24, marginTop: 4 }}>
+        <View style={styles.content}>
+          <Text style={styles.title}>Analisando suas preferências...</Text>
         </View>
 
-        <View style={ESTILOS.content}>
-          <Text style={ESTILOS.title}>Sua receita 👇</Text>
+        <View style={styles.content}>
+          <Text style={styles.title}>Sua recomendação de saúde e autocuidado:</Text>
+          <Text style={styles.recomendacao}></Text>
         </View>
-
       </ScrollView>
     </View>
   );
 }
 
-const ESTILOS = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f1f1f1',
@@ -46,7 +49,7 @@ const ESTILOS = StyleSheet.create({
   header: {
     fontSize: 32,
     fontWeight: 'bold',
-    paddingTop: Platform.OS === 'android' ? 34 : 54
+    paddingTop: Platform.OS === 'android' ? alturaStatusBar : 54,
   },
   form: {
     backgroundColor: '#FFF',
@@ -82,7 +85,7 @@ const ESTILOS = StyleSheet.create({
   buttonText: {
     fontSize: 18,
     color: '#FFF',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   content: {
     backgroundColor: '#FFF',
@@ -95,11 +98,16 @@ const ESTILOS = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 14
+    marginBottom: 14,
+  },
+  recomendacao: {
+    fontSize: 16,
+    textAlign: 'center',
+    marginTop: 10,
+    color: '#333',
   },
   containerScroll: {
     width: '90%',
     marginTop: 8,
-  }
-
-})
+  },
+});
