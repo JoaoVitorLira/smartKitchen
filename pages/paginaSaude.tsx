@@ -4,30 +4,34 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 const alturaStatusBar = StatusBar.currentHeight;
 
-export function saude() {
+export function Saude() {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" translucent={true} backgroundColor="#f1f1f1" />
-      <Text style={styles.header}>Assistente de estudos</Text>
+      <Text style={styles.header}>Dicas de autocuidado e saúde</Text>
       <View style={styles.form}>
-        <Text style={styles.label}>Informe o tema:</Text>
+        <Text style={styles.label}>Informe sua dúvida:</Text>
         <TextInput
-          placeholder="Qual o tema que deseja estudar?"
+          placeholder="Qual os sintomas?"
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Em que momento os sintomas apareceram: (ex: 3 dias atrás)."
           style={styles.input}
         />
       </View>
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Obter informações</Text>
+        <Text style={styles.buttonText}>Obter dicas</Text>
         <MaterialIcons name="search" size={24} color="#FFF" />
       </TouchableOpacity>
 
       <ScrollView style={styles.containerScroll} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 24, marginTop: 4 }}>
         <View style={styles.content}>
-          <Text style={styles.title}>Analisando o seu tema...</Text>
+          <Text style={styles.title}>Analisando suas preferências...</Text>
         </View>
 
         <View style={styles.content}>
-          <Text style={styles.title}>Sua pesquisa e resumo:</Text>
+          <Text style={styles.title}>Sua recomendação de saúde e autocuidado:</Text>
           <Text style={styles.recomendacao}></Text>
         </View>
       </ScrollView>

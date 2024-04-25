@@ -2,9 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Platform, StatusBar, ScrollView } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
+
 const alturaStatusBar = StatusBar.currentHeight;
 
-export function saude() {
+export function Dieta() {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" translucent={true} backgroundColor="#f1f1f1" />
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   button: {
-    backgroundColor: '#FF5656',
+    backgroundColor: '#A7C957',
     width: '90%',
     borderRadius: 8,
     flexDirection: 'row',
